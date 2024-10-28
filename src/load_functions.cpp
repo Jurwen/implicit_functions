@@ -308,6 +308,11 @@ bool load_functions(const std::string &filename,
                 funcVals(i, j) = cone.evaluate(pts[i][0], pts[i][1], pts[i][2]);
             }
         }
+        else if (type == "customized") {
+            for (int i = 0; i < n_pts; i++) {
+                funcVals(i, j) = data[j]["value"][i].get<double>();
+            }
+        }
         else if (type == "zero")
         {
             for (int i = 0; i < n_pts; i++)
